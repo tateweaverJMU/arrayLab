@@ -1,5 +1,6 @@
 console.log(data);
 // 1. instead of creating the cards manually, we should use array functions to convert the data into cards
+const cont = document.getElementById("countRes")
 
 function outputCards(info) {
 
@@ -21,10 +22,15 @@ function outputCards(info) {
 
     const resultsContainer = document.getElementById("#filtered-results");
     resultsContainer.innerHTML += card_temp;
+    
+
+
 
 }
 
 data.items.forEach(element => outputCards(element));
+cont.innerHTML += data.items.length.toString()
+
 
 
 // 2. maybe we only show those that match the search query?
@@ -43,6 +49,9 @@ searchButton.addEventListener("click", (ev) => {
   clear.replaceChildren()
 
   newArray.forEach(element => outputCards(element));
+
+  cont.replaceChildren()
+  cont.innerHTML += newArray.length.toString()
 
 
 })
